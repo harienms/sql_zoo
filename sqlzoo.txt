@@ -1,0 +1,86 @@
+1.
+SELECT matchid, player  FROM goal 
+  WHERE teamid = 'GER';
+
+
+2.SELECT distinct id,stadium,team1,team2
+  FROM game
+Inner join goal on  game.id = goal.matchid
+where matchid = '1012';
+
+
+
+3.SELECT player,teamid,stadium,mdate
+  FROM game JOIN goal ON (id=matchid)
+ WHERE teamid = 'GER';
+
+
+
+
+
+4.SELECT team1, team2,player
+  FROM game JOIN goal ON (id=matchid)
+WHERE player LIKE 'Mario%';
+
+
+
+
+
+5.SELECT player, teamid, coach,gtime
+  FROM goal 
+JOIN eteam on teamid=id
+ WHERE gtime<=10
+
+
+
+
+
+6.select mdate,teamname
+from game join eteam on (team1=eteam.id)
+where coach ='Fernando Santos'
+
+
+
+
+
+
+7.select player
+from goal
+join game on goal.matchid=game.id
+where stadium = 'National Stadium, Warsaw';
+
+
+
+
+
+
+8.SELECT distinct player
+  FROM game JOIN goal ON matchid = id 
+    WHERE (team1='GER' or team2='GER') AND teamid!='GER'
+
+
+
+
+
+
+9.SELECT teamname, count(gtime)
+  FROM eteam JOIN goal ON id=teamid
+ GROUP BY teamname;
+
+
+
+
+
+
+10.select stadium,count(gtime)
+from game 
+join goal on game.id=goal.matchid
+group by stadium
+
+
+
+
+
+
+
+
