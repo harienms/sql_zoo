@@ -81,6 +81,12 @@ group by stadium
 
 
 
+Hacker rank
+select city, char_length(city) from STATION 
+ where city = (select min(city) from STATION
+     where char_length(city) = (select min(char_length(city)) from STATION)) 
 
+ or city = (select min(city) from STATION
+     where char_length(city) = (select max(char_length(city)) from STATION));
 
 
